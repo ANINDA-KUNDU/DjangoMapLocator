@@ -1,0 +1,26 @@
+{%  extends 'locator/base.html' %}
+{%  load static %}
+{%  block title   %}{%  endblock %}
+{%  block content  %}
+
+
+<div class = "flat">
+    <nav>
+        <div>
+            <a href = "{% url 'home'  %}" class = "land">Aninda Map locator</a>
+        </div>
+        <div class = "roof">
+            <form method = "POST">
+                {%  csrf_token %}
+                {{form.as_p}}
+                <button type = "submit" class = "tree">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+<div>
+    {{map | safe}}
+</div>
+
+{%  endblock  %}
